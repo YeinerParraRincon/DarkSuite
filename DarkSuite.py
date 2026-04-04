@@ -37,7 +37,7 @@ def banner():
 parse = argparse.ArgumentParser(description="DarkSuite")
 
 
-parse.add_argument("-m","--module",type=int,choices=[1,2,3],help="1 = DarkHash | 2 = DarkFinder | 3 = DarkMap")
+parse.add_argument("-m","--module",type=int,choices=[1,2,3,4],help="1 = DarkFinder | 2 = DarkHash | 3 = DarkMap | 4 = DarkSearch")
 
 arg = parse.parse_args()
 
@@ -47,11 +47,17 @@ ruta_Map = os.path.join("src","DarkMap","DarkMap.py")
 
 ruta_Hash = os.path.join("src","DarkHash","DarkHash.py")
 
+ruta_finder = os.path.join("src","DarkFinder","DarkFinder.py")
+
+ruta_search = os.path.join("src","DarkSearch","DarkSearch.py")
+
 if arg.module == 1:
-    print("DarkHash")
+    subprocess.run([sys.executable,ruta_finder])
 elif arg.module == 2:
     subprocess.run([sys.executable,ruta_Hash])
 elif arg.module == 3:
     subprocess.run([sys.executable,ruta_Map])
+elif arg.module == 4:
+    subprocess.run([sys.executable,ruta_search])
 else:
     print("Module Incorrect pls verify --module or -m ")
