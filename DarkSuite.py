@@ -3,6 +3,17 @@ import subprocess
 import os
 import sys
 
+
+class C:
+    PURPLE = "\033[95m"
+    CYAN   = "\033[96m"
+    GREEN  = "\033[92m"
+    YELLOW = "\033[93m"
+    RED    = "\033[91m"
+    BOLD   = "\033[1m"
+    RESET  = "\033[0m"
+    DIM    = "\033[2m"
+
 def banner():
     green = "\033[92m"
     reset = "\033[0m"
@@ -20,20 +31,7 @@ def banner():
     """ + reset)
 
 
-def Banner_Map():
-    print("""
-\033[95m\033[1m
-  ██████╗  █████╗ ██████╗ ██╗  ██╗███╗   ███╗ █████╗ ██████╗ 
-  ██╔══██╗██╔══██╗██╔══██╗██║ ██╔╝████╗ ████║██╔══██╗██╔══██╗
-  ██║  ██║███████║██████╔╝█████╔╝ ██╔████╔██║███████║██████╔╝
-  ██║  ██║██╔══██║██╔══██╗██╔═██╗ ██║╚██╔╝██║██╔══██║██╔═══╝ 
-  ██████╔╝██║  ██║██║  ██║██║  ██╗██║ ╚═╝ ██║██║  ██║██║     
-  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝     
-\033[0m
-\033[96m  [ DarkMap — Port Scanner | Ethical Hacking Tool ]\033[0m
-\033[2m  by Yeiner Parra Rincón | SENA ADSO\033[0m
-\033[93m  ⚠️  Uso educativo y autorizado únicamente\033[0m
-""")
+
 
 
 parse = argparse.ArgumentParser(description="DarkSuite")
@@ -45,15 +43,15 @@ arg = parse.parse_args()
 
 banner()
 
-ruta = os.path.join("src","DarkMap","DarkMap.py")
+ruta_Map = os.path.join("src","DarkMap","DarkMap.py")
+
+ruta_Hash = os.path.join("src","DarkHash","DarkHash.py")
 
 if arg.module == 1:
     print("DarkHash")
 elif arg.module == 2:
-    print("DarkFinder")
+    subprocess.run([sys.executable,ruta_Hash])
 elif arg.module == 3:
-    Banner_Map()
-    ip = input("Ingrese la Ip del Objetivo: ")
-    subprocess.run([sys.executable,ruta,"-i",ip])
+    subprocess.run([sys.executable,ruta_Map])
 else:
     print("Module Incorrect pls verify --module or -m ")
