@@ -42,6 +42,7 @@ Escáner de puertos TCP con multithreading para análisis de redes.
 ## 🚀 Uso
 
 ```bash
-python main.py -m 1  # Ejecutar DarkHash
-python main.py -m 2  # Ejecutar DarkFinder
+python main.py -m 1  # Ejecutar DarkFinder
+python main.py -m 2  # Ejecutar DarkHash
 python main.py -m 3  # Ejecutar DarkMap
+python main.py -m 4  # Ejecutar DarkSearch
